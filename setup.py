@@ -11,7 +11,7 @@ def find_packages(path):
 
 
 def read_file(filename):
-    with open(filename) as fp:
+    with io.open(filename) as fp:
         return fp.read().strip()
 
 
@@ -32,8 +32,8 @@ setup(
     version=read_file('VERSION'),
     description="The missing datasets manager.",
     long_description=read_rst('README.rst') + '\n\n' + read_rst('HISTORY.rst'),
-    author="Rolando Espinoza",
-    author_email='rolando at rmax.io',
+    author="Rolando (Max) Espinoza",
+    author_email='rolando@rmax.io',
     url='https://github.com/rolando/databrewer',
     packages=list(find_packages('src')),
     package_dir={'': 'src'},
@@ -43,7 +43,7 @@ setup(
     license="MIT",
     keywords='databrewer',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
@@ -53,4 +53,9 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
+    entry_points={
+        'console_scripts': [
+            'databrewer = databrewer.__main__:main',
+        ],
+    },
 )
